@@ -29,7 +29,7 @@ class Api {
     randomGifs() {
         this.giphiesArray = []
         this.clearContentWrapper();
-        let randomURL = "http://api.giphy.com/v1/gifs/trending?api_key=ACSF6DvX2932HZzH0n7O6loDtrvWa543";
+        let randomURL = "https://api.giphy.com/v1/gifs/trending?api_key=ACSF6DvX2932HZzH0n7O6loDtrvWa543";
         $.ajax({url: randomURL, method: 'GET'}).done((response) => this.generateGifs(response));
         this.gifsLoaded +=18
     }
@@ -40,14 +40,14 @@ class Api {
         if (this.userInput === '') {
             return this.randomGifs();
         }
-        let queryURL = "http://api.giphy.com/v1/gifs/search?q=" + this.userInput + "&api_key=ACSF6DvX2932HZzH0n7O6loDtrvWa543&limit=150";
+        let queryURL = "https://api.giphy.com/v1/gifs/search?q=" + this.userInput + "&api_key=ACSF6DvX2932HZzH0n7O6loDtrvWa543&limit=150";
         this.giphiesArray = []
         $.ajax({url: queryURL, method: 'GET'}).done((response) => this.generateGifs(response));
         this.gifsLoaded += 18;
     }
 
     getMoreGifs() {
-        let queryURL = "http://api.giphy.com/v1/gifs/search?q=" + this.userInput + "&api_key=ACSF6DvX2932HZzH0n7O6loDtrvWa543&limit=150";
+        let queryURL = "https://api.giphy.com/v1/gifs/search?q=" + this.userInput + "&api_key=ACSF6DvX2932HZzH0n7O6loDtrvWa543&limit=150";
         let giphiesArray = this.giphiesArray
         let gifsLoaded = this.gifsLoaded;
         $.ajax({url: queryURL, method: 'GET'}).done(function () {
