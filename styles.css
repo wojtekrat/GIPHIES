@@ -1,6 +1,6 @@
 body {
     background-color: #121212;
-    width: 70%;
+    width: 60%;
     margin: auto;
     display: flex;
     justify-content: center;
@@ -92,7 +92,7 @@ input:focus, button:focus {
     margin-top: 0 !important;
     position: fixed;
     top: 0;
-    width: 70%;
+    width: 60%;
 }
 
 .sticky + #content-wrapper {
@@ -106,8 +106,8 @@ input:focus, button:focus {
 #content {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 15px;
     grid-template-rows: 180px;
     position: absolute;
     margin-bottom: 50px;
