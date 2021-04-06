@@ -1,0 +1,177 @@
+body {
+    background-color: #121212;
+    width: 70%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+input:focus, button:focus {
+    outline: none;
+}
+
+#main-container {
+    width: 100%;
+}
+
+#logo {
+    font-family: 'Anton', sans-serif;
+    height: 50px;
+    font-size: 40px;
+    color: white;
+    z-index: 10;
+    padding: 10px 0;
+    display: flex;
+    transition: all 0.5s;
+}
+
+.img-logo {
+    height: 50px;
+    padding-right: 10px;
+}
+
+#navbar {
+    color: white;
+    background-color: #121212;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+}
+
+#searchbar {
+    padding: 10px 0;
+    position: relative;
+    height: 40px;
+    display: flex;
+}
+
+#search-input {
+    flex-grow: 1;
+    background-color: white;
+    height: 100%;
+    box-sizing: border-box;
+    border: none;
+    font-size: 16px;
+    padding-left: 10px;
+    transition: all 0.5s;
+    border-radius: 5px;
+}
+
+#search-button {
+    width: 50px;
+    background: linear-gradient(226deg, #ffc800, #9f00ff, #ff0000);
+    background-size: 600% 600%;
+    animation: gradient 6s ease infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    font-size: 20px;
+    border-radius: 5px;
+    transition: all 0.5s;
+}
+
+#search-button:hover {
+    color: white;
+    cursor: pointer;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+.sticky {
+    margin-top: 0 !important;
+    position: fixed;
+    top: 0;
+    width: 70%;
+}
+
+.sticky + #content-wrapper {
+    margin-top: 130px;
+}
+
+#content-wrapper {
+    position: relative;
+}
+
+#content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+    grid-template-rows: 180px;
+    position: absolute;
+    margin-bottom: 50px;
+}
+
+#content img:hover {
+    background-color: #9f00ff;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+#overlay {
+    display: none;
+}
+
+.gifs {
+    border-radius: 5px;
+    background-color: darkmagenta;
+    width: 100%;
+    height: 180px;
+}
+
+#more {
+    position: fixed;
+    z-index: 10;
+    height: 50px;
+    width: 50px;
+    font-size: 25px;
+    bottom: 50px;
+    right: 150px;
+    border: none;
+    border-radius: 100%;
+    background: linear-gradient(226deg, #ffc800, #9f00ff, #ff0000);
+    background-size: 600% 600%;
+    animation: gradient 6s ease infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s;
+}
+
+#more:hover {
+    cursor: pointer;
+    color: white;
+}
+
+@media screen and (max-width: 1500px) {
+    #content, #overlay {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    #more {
+        right: 100px;
+    }
+
+}
+
+@media screen and (max-width: 950px) {
+    #content, #overlay {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #more {
+        right: 50px;
+    }
+
+}
