@@ -4,22 +4,40 @@ class Api {
         this.gifsLoaded = 0;
         this.userInput = '';
         this.giphiesArray = []
+        this.itemId = ""
         document.querySelector('#search-button').addEventListener('click', () => this.searchGifs());
         document.querySelector('#more').addEventListener('click', () => this.getMoreGifs());
+        document.getElementById("imageMenuClose").addEventListener("click", () => this.closeFullWindow());
+        this.full = document.getElementById("fullImage")   
+    }
+
+    closeFullWindow() {
+        this.full.style.display = "none"
     }
 
     generateGifs(response) {
+        let full = this.full
         for (let i = 0; i < response.data.length; i++) {
             let giphyURL = response.data[i].images.original.url;
-            this.giphiesArray.push(giphyURL)
+            this.giphiesArray.push(giphyURL)   
         }
 
         for (let x = 0; x < 18; x++) {
             let newGif = this.giphiesArray[x]
             let imgNr = "img" + x;
-            $("<img/>", {src: newGif, id: imgNr, class: "gifs"}).appendTo("#content");
+            $("<img/>", {src: newGif, id: imgNr, class: "gifs"})
+            .appendTo("#content")
+            .click(function() {
+                document.querySelector("#imageBoxImg").innerHTML = ""
+                full.style.display = "flex"
+                $("<img/>", {src: newGif}).appendTo("#imageBoxImg")
+                
+              });
         }
+
+        
     }
+
 
     clearContentWrapper() {
         document.querySelector('#content').innerHTML = "";

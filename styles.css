@@ -12,6 +12,7 @@ input:focus, button:focus {
 
 #main-container {
     width: 100%;
+   
 }
 
 #logo {
@@ -99,8 +100,48 @@ input:focus, button:focus {
     margin-top: 130px;
 }
 
+#fullImage {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 25;
+}
+
+#imageBox {
+    display: block;
+    margin: 5% auto;
+    width: 60%;
+    background-color: transparent;
+    height: 80%;
+}
+
+#imageBoxImg {
+    background-color: transparent;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+#imageBoxImg img {
+    width: 60%;
+}
+
+#imageMenuClose {
+    cursor: pointer;
+    color: white;
+    font-size: 30px;
+    position: relative;
+    left: 20.5%;
+    top: 4%;
+}
+
+
 #content-wrapper {
     position: relative;
+    margin-bottom: 100px;
 }
 
 #content {
@@ -108,9 +149,9 @@ input:focus, button:focus {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 15px;
-    grid-template-rows: 180px;
+    grid-template-rows: 200px;
     position: absolute;
-    margin-bottom: 50px;
+
 }
 
 #content img:hover {
@@ -119,15 +160,11 @@ input:focus, button:focus {
     cursor: pointer;
 }
 
-#overlay {
-    display: none;
-}
-
 .gifs {
     border-radius: 5px;
     background-color: darkmagenta;
     width: 100%;
-    height: 180px;
+    height: 200px;
 }
 
 #more {
@@ -154,9 +191,9 @@ input:focus, button:focus {
     color: white;
 }
 
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 1200px) {
     #content, #overlay {
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
     }
 
     #more {
@@ -165,9 +202,9 @@ input:focus, button:focus {
 
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 800px) {
     #content, #overlay {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
     }
 
     #more {
