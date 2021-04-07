@@ -22,7 +22,7 @@ class Api {
             this.giphiesArray.push(giphyURL)   
         }
 
-        for (let x = 0; x < 18; x++) {
+        for (let x = 0; x < 20; x++) {
             let newGif = this.giphiesArray[x]
             let imgNr = "img" + x;
             $("<img/>", {src: newGif, id: imgNr, class: "gifs"})
@@ -34,10 +34,7 @@ class Api {
                 
               });
         }
-
-        
     }
-
 
     clearContentWrapper() {
         document.querySelector('#content').innerHTML = "";
@@ -49,7 +46,7 @@ class Api {
         this.clearContentWrapper();
         let randomURL = "https://api.giphy.com/v1/gifs/trending?api_key=ACSF6DvX2932HZzH0n7O6loDtrvWa543";
         $.ajax({url: randomURL, method: 'GET'}).done((response) => this.generateGifs(response));
-        this.gifsLoaded +=18
+        this.gifsLoaded +=20
     }
 
     searchGifs() {
@@ -61,22 +58,30 @@ class Api {
         let queryURL = "https://api.giphy.com/v1/gifs/search?q=" + this.userInput + "&api_key=ACSF6DvX2932HZzH0n7O6loDtrvWa543&limit=150";
         this.giphiesArray = []
         $.ajax({url: queryURL, method: 'GET'}).done((response) => this.generateGifs(response));
-        this.gifsLoaded += 18;
+        this.gifsLoaded += 20;
     }
 
     getMoreGifs() {
         let queryURL = "https://api.giphy.com/v1/gifs/search?q=" + this.userInput + "&api_key=ACSF6DvX2932HZzH0n7O6loDtrvWa543&limit=150";
         let giphiesArray = this.giphiesArray
         let gifsLoaded = this.gifsLoaded;
+        let full = this.full
         $.ajax({url: queryURL, method: 'GET'}).done(function () {
             for (let i = gifsLoaded; i < giphiesArray.length; i++) {
                 let giphyURL = giphiesArray[i];
                 let imgNr = "img" + i;
 
-                $("<img/>", {src: giphyURL, id: imgNr, class: "gifs"}).appendTo("#content");
+                $("<img/>", {src: giphyURL, id: imgNr, class: "gifs"})
+                .appendTo("#content")
+                .click(function() {
+                    document.querySelector("#imageBoxImg").innerHTML = ""
+                    full.style.display = "flex"
+                    $("<img/>", {src: giphyURL}).appendTo("#imageBoxImg")
+                    
+                  });
             }
         });
-        this.gifsLoaded += 18;
+        this.gifsLoaded += 20;
         
     }
 }
