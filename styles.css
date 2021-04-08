@@ -216,12 +216,12 @@ input:focus, button:focus {
     }
 
     #imageBoxImg img {
-        width: 450px;
-        height: 500px;
+        width: 400px;
+        height: 400px;
     }
 
     #imageBoxImg2 {
-        width: 500px;
+        width: 400px;
     }
 
 }
